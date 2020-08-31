@@ -1,0 +1,109 @@
+<mat-dialog-content>
+  <div class="container">
+    <div class="row mt-1 col-*">
+      <button
+        mat-button
+        mat-dialog-close
+        class="route-btn d-flex align-items-center"
+      >
+        <span class="bold">BACK</span>
+      </button>
+    </div>
+    <div class="row mt-3 justify-content-center justify-content-md-around">
+      <div
+        class="col-* img-container col-md-6 col-lg-5 row justify-content-center align-items-center"
+      >
+        <img class="col-* dish-pic" [src]="dish.image" [alt]="dish.name" />
+        <img
+          class="play-button"
+          src="../../../assets/Icons/Icon ionic-ios-play-circle.png"
+          alt="play_video"
+        />
+      </div>
+      <div
+        class="col-* col-md-6 col-lg-5 p-md-3 pt-4 text-justify text-md-right"
+      >
+        <div class="dish-name">
+          <p>{{ dish.name }}</p>
+        </div>
+        <div class="dish-subtitle">
+          <span *ngIf="dish.category"> {{ dish.category | titlecase }}</span>
+          <span *ngIf="dish.label"> - {{ dish.label | titlecase }} </span>
+        </div>
+        <div class="dish-desc mt-4">
+          <h2 class="bold text-muted">Description</h2>
+          <p>{{ dish.description }}.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3 justify-content-around">
+      <div class="col-* col-md-6 col-lg-5 text-justify">
+        <h2 class="bold text-muted">Ingredients</h2>
+        {{ helperIngredient }}
+      </div>
+      <div class="col-* col-md-6 col-lg-5">
+        <div class="row justify-content-center mt-5 mb-5">
+          <div
+            class="col-* circle d-flex flex-column justify-content-center align-items-center"
+          >
+            <span class="circle-num">{{ dish.price }}</span>
+            <span class="circle-text">Dollars</span>
+          </div>
+          <div
+            class="col-* circle d-flex flex-column justify-content-center align-items-center"
+          >
+            <span class="circle-num">8</span>
+            <span class="circle-text">Ingredients</span>
+          </div>
+          <div
+            class="col-* circle d-flex flex-column justify-content-center align-items-center"
+          >
+            <span class="circle-num">25</span>
+            <span class="circle-text">Minutes</span>
+          </div>
+        </div>
+        <div
+          class="favorite border-bottom row justify-content-center justify-content-md-end pr-4 pb-4"
+        >
+          <div class="col-*">
+            <span>Favorite this recipe</span>
+            <img
+              *ngIf="!favorite"
+              class="m-2 icon"
+              (click)="favorite = !favorite"
+              src="../../../assets/Icons/Icon feather-heart.png"
+              alt="fav"
+            />
+            <img
+              *ngIf="favorite"
+              class="m-2 icon"
+              (click)="favorite = !favorite"
+              src="../../../assets/Icons/Icon feather-heart-color.png"
+              alt="fav"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 justify-content-center justify-content-md-around">
+      <div class="col-* col-md-6 col-lg-5 text-justify">
+        <h2 class="bold text-muted">How to prepare</h2>
+        {{ helperIngredient }}
+      </div>
+      <div
+        class="col-* col-md-6 col-lg-5 row p-md-3 pt-4 justify-content-center"
+      >
+        <div class="col-12 favorite">
+          <span class="text-left">Add comments</span>
+        </div>
+        <div class="col-10 col-md-12 m-2">
+          <textarea class="p-2" placeholder="Type something here..."></textarea>
+        </div>
+        <div class="col-10 col-md-12 m-2">
+          <button mat-raised-button class="back-dark">ADD COMMENT</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>

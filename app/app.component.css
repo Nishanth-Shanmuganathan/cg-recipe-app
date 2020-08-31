@@ -1,0 +1,6 @@
+.router-outlet {
+  position: relative;
+  height: fit-content;
+  min-height: 100vh;
+  background-color: #F0F0F0;
+}

@@ -1,0 +1,55 @@
+<mat-card
+  class="hover"
+  [ngStyle]="{
+    backgroundImage: 'url(' + dish.image + ')'
+  }"
+  class="d-flex flex-column justify-content-between p-5"
+  (click)="helperBackdrop = true"
+  (mouseleave)="helperBackdrop = false"
+>
+  <div class="empty"></div>
+  <div class="dish-details">
+    <p
+      class="row d-flex justify-content-between align-items-center flex-nowrap"
+    >
+      <span
+        class="dish-name"
+        [ngClass]="{
+          ' text-dark bg-warning':
+            search && dish.name.toLowerCase().includes(search.toLowerCase())
+        }"
+      >
+        {{ dish.name }}</span
+      >
+      <span>
+        <img
+          *ngIf="!helperFavorite"
+          (click)="helperFavorite = true"
+          class="icon filter"
+          src="../../../assets/Icons/Icon feather-heart.png"
+          alt="heart"
+        />
+        <img
+          class="icon"
+          *ngIf="helperFavorite"
+          (click)="helperFavorite = false"
+          src="../../../assets/Icons/Icon feather-heart-color.png"
+          alt="heart"
+        />
+      </span>
+    </p>
+    <p class="dish-add text-muted">
+      <span>{{ dish.category | titlecase }}</span>
+      <span class="float-right">{{ dish.price | currency }}</span>
+    </p>
+    <p class="dish-desc">
+      {{ dish.description }}
+    </p>
+  </div>
+  <div
+    *ngIf="helperBackdrop"
+    class="backdrop d-flex justify-content-center align-items-center"
+  >
+    <button class="btn-nav" (click)="navigate(dish.id)">View More</button>
+  </div>
+</mat-card>

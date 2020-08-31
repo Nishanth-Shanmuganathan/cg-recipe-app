@@ -1,0 +1,51 @@
+<div class="container pt-5 pb-5">
+  <div class="row align-items-center m-3">
+    <div
+      class="col-12 offset-md-1 col-md-10 row justify-content-center justify-content-md-start flex-nowrap"
+    >
+      <div class="col-* search ml-1">
+        <img src="../../../assets/Icons/Icon feather-search.png" alt="heart" />
+      </div>
+      <mat-form-field class="col-auto">
+        <mat-label>
+          Search your favorite recipe...
+        </mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="search"
+          #searchField
+          (ngModelChange)="searchDishes()"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row d-flex">
+    <div class="col-10 col-lg-11 text-right">
+      <p class="m-0 small text-muted">CATEGORY</p>
+      <h1 class="font-weight-bold">
+        Pizza & Noodles
+      </h1>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-3">
+    <div
+      class="col-10 d-flex flex-wrap align-items-stretch justify-content-center"
+    >
+      <app-card
+        *ngFor="let dish of filteredDishes"
+        [dish]="dish"
+        [search]="search"
+      ></app-card>
+    </div>
+  </div>
+  <img class="bottom-left" src="../assets/Illustration1.png" alt="" />
+  <img
+    class="top-right d-none d-sm-block"
+    src="../assets/Illustration2.png"
+    alt=""
+  />
+  <img class="left" src="../assets/Illustration3.png" alt="" />
+  <img class="right" src="../assets/Illustration4.png" alt="" />
+  <img class="tiny-right" src="../assets/Illustration5.png" alt="" />
+</div>
